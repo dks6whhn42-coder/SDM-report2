@@ -19,3 +19,18 @@ class TestCalc (unittest.TestCase):
         def test_sample4 (self):
                 self.assertEqual (-1, calc(0.1,999))
         
+        def test_sample5(self):
+                """同値分割: 小数x + 小さいy → エラー(-1)期待"""
+                self.assertEqual(-1, calc(0.5, 5))
+
+        def test_sample6(self):
+                """同値分割: 整数x + 小さいy → 乗算期待"""  
+                self.assertEqual(10, calc(2, 5))
+
+        def test_sample7(self):
+                """境界値: x=0.0 → エラー(-1)期待"""
+                self.assertEqual(-1, calc(0.0, 999))
+
+        def test_sample8(self):
+                """境界値: x=1.0 → 乗算期待"""
+                self.assertEqual(999, calc(1.0, 999))
